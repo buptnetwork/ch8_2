@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mytestDao" class="dao.TestDaoImpl">
+    </bean>
+    <bean id="mytestServiceA" class="service.TestServiceAImpl">
+        <constructor-arg index="0" ref="mytestDao"/>
+    </bean>
+    <bean id="mytestServiceB" class="service.TestServiceBImpl" scope="prototype">
+        <property name="testDao" ref="mytestDao"></property>
+    </bean>
+
+</beans>
